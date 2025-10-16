@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chibeoi💖</title>
+  <style>
+    body {
+      margin: 0;
+      background: #d9f5ef;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .scene {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      height: 400px;
+      background: linear-gradient(to top, #b8efdb 0%, #d9f5ef 100%);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .sun {
+      position: absolute;
+      top: 40px;
+      left: 80px;
+      width: 120px;
+      height: 120px;
+      animation: shine 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes shine {
+      0% { transform: scale(1); filter: brightness(1); }
+      100% { transform: scale(1.05); filter: brightness(1.2); }
+    }
+
+    .tree {
+      position: absolute;
+      bottom: 30px;
+      left: 150px;
+      width: 200px;
+      height: auto;
+      animation: sway 3s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+    }
+
+    @keyframes sway {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(2deg); }
+    }
+
+    .butterfly {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      animation: fly 10s linear infinite;
+    }
+
+    @keyframes fly {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+      25% { transform: translate(200px, -50px) rotate(15deg); }
+      50% { transform: translate(100px, -100px) rotate(-10deg); }
+      75% { transform: translate(250px, -30px) rotate(10deg); }
+      100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      right: 80px;
+      transform: translateY(-50%);
+      text-align: left;
+      color: #1e3a34;
+      max-width: 360px;
+    }
+
+    .message h1, .message h2, .message p {
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+
+    .message h1 {
+      animation-delay: 0.5s;
+      font-size: 28px;
+      color: #159c87;
+    }
+
+    .message h2 {
+      animation-delay: 2s;
+      font-size: 22px;
+      color: #f46fa4;
+    }
+
+    .message p {
+      animation-delay: 3.5s;
+      font-size: 18px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    button.play {
+      background: #13c8a1;
+      color: white;
+    }
+
+    button.pause {
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+
+    button.gift {
+      background: #ff9cc7;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* Hiệu ứng mở quà */
+    .gift-box {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.75);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 1s, visibility 1s;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .gift-box.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .gift-box img {
+      width: 280px;
+      animation: pop 1s ease forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .gift-text {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #d83a7c;
+      animation: fadeText 1s ease forwards;
+    }
+
+    @keyframes fadeText {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+    <img src="mattroi.png" alt="Mặt trời" class="sun">
+    <img src="cay.png" alt="Cây" class="tree">
+    <img src="cay.png" alt="Cây" class="tree">
+    <img src="buom.png" alt="Bướm" class="butterfly" style="top:100px; left:200px; animation-delay:0s;">
+    <img src="buom.png" alt="Bướm" class="butterfly" style="top:180px; left:300px; animation-delay:2s;">
+    <img src="buom.png" alt="Bướm" class="butterfly" style="top:120px; left:400px; animation-delay:4s;">
+
+    <div class="message">
+      <h1>Good morning Chị bé 🌅</h1>
+      <h2>Princess 💖</h2>
+      <p>Gió rất dịu dàng, hoa cũng rất lãng mạn, chị rất đặc biệt, em rất ... 🌸</p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="play" onclick="playAudio()">Phát nhạc 💌</button>
+    <button class="pause" onclick="pauseAudio()">Tạm dừng 🎵</button>
+    <button class="gift" onclick="showGift()">Mở quà 🎁</button>
+  </div>
+
+  <p class="note">ChouChou</p>
+
+  <audio id="bgMusic" src="love.mp3" loop></audio>
+
+  <div class="gift-box" id="giftBox">
+    <img src="hoa.png" alt="Bó hoa">
+    <div class="gift-text">
+      Tặng chị bé bó hoa này 🌸<br>
+      Mong là lần sau có thể tặng chị 1 bó hoa thật 💖
+    </div>
+  </div>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const giftBox = document.getElementById("giftBox");
+
+    function playAudio() { music.play(); }
+    function pauseAudio() { music.pause(); }
+
+    function showGift() {
+      giftBox.classList.add("active");
+      setTimeout(() => {
+        giftBox.classList.remove("active");
+      }, 5000); // bó hoa + lời chúc hiện 5 giây rồi ẩn
+    }
+  </script>
+
+</body>
+</html>
